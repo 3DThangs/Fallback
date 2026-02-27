@@ -2,4 +2,3 @@
 * text=auto eol=lf
 exports filter=lfs diff=lfs merge=lfs -text
 exports/Macos/FallBack[[:space:]](4.4).app filter=lfs diff=lfs merge=lfs -text
-exports/** filter=lfs diff=lfs merge=lfs -text
