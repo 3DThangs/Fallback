@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4doxtveg7kc1"]
+
+[ext_resource type="Texture2D" uid="uid://dtlncydiu5vfk" path="res://assets/sprites/enimies/simple enimy/die.png" id="1_2tp4s"]
+[ext_resource type="Script" uid="uid://bw2lc8unccugn" path="res://scenes/entities/enemies/simple_enemy.gd" id="1_orjj5"]
+[ext_resource type="Texture2D" uid="uid://bk17ryln6frce" path="res://assets/sprites/enimies/simple enimy/walk_1.png" id="2_3tfst"]
+[ext_resource type="Texture2D" uid="uid://cw16xs85yt34h" path="res://assets/sprites/enimies/simple enimy/walk_2.png" id="3_c3cbq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ajps"]
+size = Vector2(14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqhs2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2tp4s")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3tfst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c3cbq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sk261"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0x531"]
+b = Vector2(0, 14)
+
+[node name="BeepBop" type="CharacterBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_orjj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8ajps")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mqhs2")
+animation = &"walk"
+
+[node name="side_a" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="side_a"]
+position = Vector2(-9, -4)
+shape = SubResource("SegmentShape2D_sk261")
+debug_color = Color(1, 0, 0, 0.498039)
+
+[node name="side_b" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="side_b"]
+position = Vector2(9, -4)
+shape = SubResource("SegmentShape2D_sk261")
+debug_color = Color(1, 0, 0, 0.498039)
+
+[node name="top" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top"]
+position = Vector2(7, -9)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_0x531")
+debug_color = Color(1, 0, 0, 0.498039)
+
+[connection signal="body_entered" from="side_a" to="." method="_on_side_a_body_entered"]
+[connection signal="body_entered" from="side_b" to="." method="_on_side_b_body_entered"]
+[connection signal="body_entered" from="top" to="." method="_on_top_body_entered"]

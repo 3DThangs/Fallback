@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bppaifqge30x1"]
+
+[ext_resource type="Script" uid="uid://bak33mig4q1qx" path="res://scenes/entities/interactibles/lever.gd" id="1_gt4ml"]
+[ext_resource type="Texture2D" uid="uid://b34asditkq8qp" path="res://assets/sprites/switch/switch_right.png" id="1_r8k3l"]
+[ext_resource type="Texture2D" uid="uid://8ittjr3cfurk" path="res://assets/sprites/switch/switch_middle.png" id="2_x3jfy"]
+[ext_resource type="Texture2D" uid="uid://dfna0or07o1fb" path="res://assets/sprites/switch/switch_left.png" id="3_35ci4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yiji"]
+size = Vector2(16, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nyyqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_35ci4")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x3jfy")
+}],
+"loop": true,
+"name": &"middle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r8k3l")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="lever" type="Node2D"]
+script = ExtResource("1_gt4ml")
+default_position = "Left"
+
+[node name="Node2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_4yiji")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+sprite_frames = SubResource("SpriteFrames_nyyqw")
+animation = &"right"
+
+[connection signal="body_entered" from="Node2D" to="." method="_on_node_2d_body_entered"]
+[connection signal="body_exited" from="Node2D" to="." method="_on_node_2d_body_exited"]

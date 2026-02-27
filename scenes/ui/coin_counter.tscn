@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b8omxcdlam14b"]
+
+[ext_resource type="Script" uid="uid://dbnts7iqur8yj" path="res://assets/scripts/coin_counter.gd" id="1_suyeb"]
+[ext_resource type="Texture2D" uid="uid://bdhaqfftxtlwc" path="res://assets/sprites/tilemap.png" id="2_i4amx"]
+[ext_resource type="FontFile" uid="uid://cia2rwgnnhmv8" path="res://assets/Pixeled.ttf" id="2_s27m3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nmg8s"]
+font = ExtResource("2_s27m3")
+font_size = 15
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CoinCounter" type="CanvasLayer" unique_id=1029357099]
+script = ExtResource("1_suyeb")
+
+[node name="Label" type="Label" parent="." unique_id=218584684]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -42.0
+offset_right = 73.0
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_nmg8s")
+vertical_alignment = 1
+
+[node name="Coin" type="Sprite2D" parent="." unique_id=737887141]
+position = Vector2(15, 342)
+scale = Vector2(2, 2)
+texture = ExtResource("2_i4amx")
+region_enabled = true
+region_rect = Rect2(209, 133, 18, 18)

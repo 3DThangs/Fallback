@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://khomg37x2voh"]
+
+[ext_resource type="Script" uid="uid://cy561ytavq7e5" path="res://scenes/entities/interactibles/obstacles/danger_zone.gd" id="1_jtfmm"]
+
+[node name="DangerZone" type="Area2D"]
+collision_layer = 12
+collision_mask = 8
+monitorable = false
+script = ExtResource("1_jtfmm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

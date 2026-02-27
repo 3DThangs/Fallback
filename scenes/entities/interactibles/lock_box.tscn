@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm6pogl68qigw"]
+
+[ext_resource type="Script" uid="uid://bp1rhc6x23id0" path="res://scenes/entities/interactibles/lock_box.gd" id="1_tl5rg"]
+[ext_resource type="Texture2D" uid="uid://bdhaqfftxtlwc" path="res://assets/sprites/tilemap.png" id="1_weude"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg6uy"]
+size = Vector2(18, 18)
+
+[sub_resource type="SystemFont" id="SystemFont_nvy8u"]
+font_names = PackedStringArray("Pixeloid Mono")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_11vct"]
+font = SubResource("SystemFont_nvy8u")
+font_size = 10
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="lock_box" type="Area2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_tl5rg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gg6uy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_weude")
+region_enabled = true
+region_rect = Rect2(152, 19, 18, 18)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 24.0
+offset_bottom = -7.0
+label_settings = SubResource("LabelSettings_11vct")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckwqme8o1glnq"]
+
+[ext_resource type="Texture2D" uid="uid://bn6jmx4vho1hp" path="res://assets/sprites/flag/idle_down_1.png" id="1_0rand"]
+[ext_resource type="Script" uid="uid://bn2p8ttq1aijm" path="res://scenes/entities/interactibles/flag.gd" id="1_erj1x"]
+[ext_resource type="Texture2D" uid="uid://h4aamqjktbjr" path="res://assets/sprites/flag/idle_down_2.png" id="2_s0c2c"]
+[ext_resource type="Texture2D" uid="uid://bvxts26vunb72" path="res://assets/sprites/flag/idle_up_1.png" id="3_hdfih"]
+[ext_resource type="Texture2D" uid="uid://ctcasyi5plg27" path="res://assets/sprites/flag/idle_up_2.png" id="4_itxum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irsuw"]
+size = Vector2(9, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tew8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0rand")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s0c2c")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hdfih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_itxum")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 2.0
+}]
+
+[node name="flag" type="Area2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_erj1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_irsuw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tew8o")
+animation = &"idle_down"
+frame_progress = 0.619942
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

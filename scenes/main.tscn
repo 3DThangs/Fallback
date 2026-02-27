@@ -1,0 +1,422 @@
+[gd_scene format=3 uid="uid://cfo2xgwdi2wmq"]
+
+[ext_resource type="Script" uid="uid://cg5127rjv6rtm" path="res://scenes/main.gd" id="1_ft226"]
+[ext_resource type="Script" uid="uid://bwlbs36etf0q1" path="res://assets/scripts/classes/level_data.gd" id="2_a5r3f"]
+[ext_resource type="PackedScene" uid="uid://csurgfu3c1vor" path="res://scenes/ui/main_menu.tscn" id="2_e6x8b"]
+[ext_resource type="Texture2D" uid="uid://cwjqiybuii74t" path="res://assets/sprites/tilemap-backgrounds_packed.png" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://15kjirc8a2f8" path="res://assets/sprites/Left.png" id="5_85g3d"]
+[ext_resource type="FontFile" uid="uid://cia2rwgnnhmv8" path="res://assets/Pixeled.ttf" id="5_jkv2x"]
+[ext_resource type="Script" uid="uid://ccdpa83tjjrpi" path="res://scenes/Playbutton.gd" id="5_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://bt2kkn1d78jls" path="res://assets/sprites/Right.png" id="6_choun"]
+[ext_resource type="Texture2D" uid="uid://cxyh2o42lo1ky" path="res://assets/sprites/Play.png" id="6_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://vu3svtco5jng" path="res://assets/sprites/caracters/blue.png" id="7_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://dkd8ulgwl0yq5" path="res://assets/sprites/caracters/green.png" id="8_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://c7bgucdimiic1" path="res://assets/sprites/caracters/orange.png" id="9_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://c8lir0t7x47lc" path="res://assets/sprites/caracters/pink.png" id="10_muem4"]
+[ext_resource type="Texture2D" uid="uid://vkh75ytwdvpn" path="res://assets/sprites/caracters/yellow.png" id="11_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://buwabcnl33647" path="res://assets/sprites/Pause.png" id="16_muem4"]
+
+[sub_resource type="Resource" id="Resource_p1tnv"]
+script = ExtResource("2_a5r3f")
+level_id = 1
+level_name = "The First Level"
+level_path = "levels/level_01"
+
+[sub_resource type="Resource" id="Resource_q2614"]
+script = ExtResource("2_a5r3f")
+level_id = 2
+level_name = "The Second Level"
+level_path = "levels/level_02"
+
+[sub_resource type="Resource" id="Resource_4oalt"]
+script = ExtResource("2_a5r3f")
+level_id = 3
+level_name = "The Third Level"
+level_path = "levels/level_03"
+
+[sub_resource type="Resource" id="Resource_sugp2"]
+script = ExtResource("2_a5r3f")
+level_id = 4
+level_name = "The Fourth Level"
+level_path = "levels/level_04"
+metadata/_custom_type_script = "uid://bwlbs36etf0q1"
+
+[sub_resource type="Resource" id="Resource_jyhfs"]
+script = ExtResource("2_a5r3f")
+level_id = 5
+level_name = "The Fifth Level"
+level_path = "levels/level_05"
+metadata/_custom_type_script = "uid://bwlbs36etf0q1"
+
+[sub_resource type="Resource" id="Resource_a8y0u"]
+script = ExtResource("2_a5r3f")
+level_id = 6
+level_name = "The Sixth Level"
+level_path = "levels/level_06"
+metadata/_custom_type_script = "uid://bwlbs36etf0q1"
+
+[sub_resource type="Theme" id="Theme_jyhfs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ld40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_a8y0u")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_jkv2x")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jbj1t")
+}],
+"loop": true,
+"name": &"orange",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_muem4")
+}],
+"loop": true,
+"name": &"pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_dp3eg")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkv2x"]
+font = ExtResource("5_jkv2x")
+font_size = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(26, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tipki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_muem4")
+}],
+"loop": false,
+"name": &"pause",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_o6xl0")
+}],
+"loop": false,
+"name": &"play",
+"speed": 12.0
+}]
+
+[node name="Main" type="Node" unique_id=299907168]
+script = ExtResource("1_ft226")
+avaliable_levels = Array[ExtResource("2_a5r3f")]([SubResource("Resource_p1tnv"), SubResource("Resource_q2614"), SubResource("Resource_4oalt"), SubResource("Resource_sugp2"), SubResource("Resource_jyhfs"), SubResource("Resource_a8y0u")])
+
+[node name="UIMain" type="CanvasLayer" parent="." unique_id=1553713467]
+
+[node name="MainMenu" parent="UIMain" unique_id=453170934 instance=ExtResource("2_e6x8b")]
+visible = false
+
+[node name="Settings" type="CanvasLayer" parent="UIMain/MainMenu" unique_id=250457346]
+
+[node name="BG" type="TextureRect" parent="UIMain/MainMenu/Settings" unique_id=646514687]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jyhfs")
+stretch_mode = 6
+
+[node name="Back Button" type="Button" parent="UIMain/MainMenu/Settings/BG" unique_id=1467395232]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.458
+anchor_top = 0.861
+anchor_right = 0.542
+anchor_bottom = 0.939
+offset_left = -0.120026
+offset_top = 0.039978
+offset_right = 0.119965
+offset_bottom = -0.0400391
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_jkv2x")
+theme_override_font_sizes/font_size = 10
+text = "BACK"
+
+[node name="Music" type="HSlider" parent="UIMain/MainMenu/Settings/BG" unique_id=606698132]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.281
+anchor_top = 0.211
+anchor_right = 0.819
+anchor_bottom = 0.256
+offset_left = 0.159988
+offset_top = 0.0399933
+offset_right = -0.160034
+offset_bottom = -0.160004
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 0.177
+step = 0.01
+value = 0.177
+
+[node name="Label" type="Label" parent="UIMain/MainMenu/Settings/BG/Music" unique_id=1549569708]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.186
+anchor_top = -0.219
+anchor_right = -0.029
+anchor_bottom = 1.219
+offset_left = -0.0159988
+offset_top = 0.00400019
+offset_right = -0.0239992
+offset_bottom = -0.00400162
+grow_vertical = 2
+tooltip_text = "Music volume"
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_jkv2x")
+theme_override_font_sizes/font_size = 10
+text = "MUSIC"
+horizontal_alignment = 2
+
+[node name="SFX" type="HSlider" parent="UIMain/MainMenu/Settings/BG" unique_id=350883677]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.281
+anchor_top = 0.278
+anchor_right = 0.819
+anchor_bottom = 0.322
+offset_left = 0.159988
+offset_top = -0.0800171
+offset_right = -0.160034
+offset_bottom = 0.0799866
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jyhfs")
+max_value = 0.316
+step = 0.01
+value = 0.316
+
+[node name="Label" type="Label" parent="UIMain/MainMenu/Settings/BG/SFX" unique_id=1192639147]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.186
+anchor_top = -0.219
+anchor_right = -0.029
+anchor_bottom = 1.219
+offset_left = -0.0159988
+offset_top = 0.504
+offset_right = -0.0239992
+offset_bottom = 0.495998
+grow_vertical = 2
+tooltip_text = "Sound effexts volume"
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_jkv2x")
+theme_override_font_sizes/font_size = 10
+text = "SFX"
+horizontal_alignment = 2
+
+[node name="Left" type="Button" parent="UIMain/MainMenu/Settings/BG" unique_id=1854129568]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.599
+anchor_top = 0.416
+anchor_right = 0.638
+anchor_bottom = 0.511
+offset_left = -15.36
+offset_top = -9.76001
+offset_right = -14.32
+offset_bottom = -17.96
+scale = Vector2(2, 2)
+icon = ExtResource("5_85g3d")
+flat = true
+
+[node name="Right" type="Button" parent="UIMain/MainMenu/Settings/BG" unique_id=1453983497]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.763
+anchor_top = 0.427
+anchor_right = 0.797
+anchor_bottom = 0.5
+offset_left = -12.32
+offset_top = -13.72
+offset_right = -8.08002
+offset_bottom = -14.0
+scale = Vector2(2, 2)
+icon = ExtResource("6_choun")
+flat = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UIMain/MainMenu/Settings/BG" unique_id=661405307]
+position = Vector2(448, 164)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0ld40")
+animation = &"green"
+
+[node name="Label" type="Label" parent="UIMain/MainMenu/Settings/BG" unique_id=1638610417]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.116
+anchor_top = 0.433
+anchor_right = 0.266
+anchor_bottom = 0.482
+offset_left = -0.23999786
+offset_top = -3.8800354
+offset_right = -0.2400055
+offset_bottom = 6.479965
+grow_vertical = 2
+tooltip_text = "Your character that appears in-game"
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_jkv2x")
+theme_override_font_sizes/font_size = 10
+text = "CHARACTER"
+horizontal_alignment = 2
+
+[node name="SpinBox" type="SpinBox" parent="UIMain/MainMenu/Settings/BG" unique_id=1739773232]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.69100004
+anchor_top = 0.55600005
+anchor_right = 0.82600003
+anchor_bottom = 0.642
+offset_left = -4.2400208
+offset_top = -0.16001892
+offset_right = -4.1398926
+offset_bottom = 1.043396
+min_value = 20.0
+max_value = 1000.0
+value = 60.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+
+[node name="Label2" type="Label" parent="UIMain/MainMenu/Settings/BG/SpinBox" unique_id=1648855196]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.8840003
+anchor_top = 0.032
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.0335083
+offset_top = -0.029229045
+offset_right = -354.4994
+offset_bottom = -2.0372467
+grow_vertical = 2
+tooltip_text = "The maximum framerate of the project"
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_jkv2x")
+theme_override_font_sizes/font_size = 10
+text = "MAX FPS"
+horizontal_alignment = 2
+
+[node name="CheckButton" type="CheckButton" parent="UIMain/MainMenu/Settings/BG/SpinBox" unique_id=559338389]
+layout_mode = 0
+offset_left = -57.0
+offset_top = 4.0
+offset_right = -13.0
+offset_bottom = 28.0
+button_pressed = true
+
+[node name="Label2" type="Label" parent="UIMain/MainMenu/Settings/BG" unique_id=1165058629]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16900001
+anchor_top = 0.63600004
+anchor_right = 0.266
+anchor_bottom = 0.71400005
+offset_left = -0.16001129
+offset_top = 0.039993286
+offset_right = -0.2400055
+offset_bottom = 3.9751282
+grow_vertical = 2
+tooltip_text = "Make the framerate match your monitor's"
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_jkv2x")
+theme_override_font_sizes/font_size = 10
+text = "V-SYNC"
+horizontal_alignment = 2
+
+[node name="CheckButton" type="CheckButton" parent="UIMain/MainMenu/Settings/BG/Label2" unique_id=405085579]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.143
+anchor_right = 6.7580004
+anchor_bottom = 1.0
+offset_left = 375.0
+offset_top = -0.5781646
+offset_right = 0.003967285
+offset_bottom = -0.574173
+button_pressed = true
+
+[node name="Label" type="Label" parent="UIMain/MainMenu/Settings" unique_id=1269905098]
+visible = false
+offset_top = 168.0
+offset_right = 640.0
+offset_bottom = 191.0
+text = "Loading..."
+label_settings = SubResource("LabelSettings_jkv2x")
+horizontal_alignment = 1
+
+[node name="2DScene" type="Node2D" parent="." unique_id=1187586945]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1190832631]
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2134117071]
+script = ExtResource("5_o6xl0")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer" unique_id=968713113]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Area2D" unique_id=1240022987]
+position = Vector2(29, 29)
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Area2D" unique_id=1437562940]
+position = Vector2(28, 29)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tipki")
+animation = &"play"
+
+[connection signal="mouse_entered" from="UIMain/MainMenu/Settings/BG" to="UIMain/MainMenu" method="_on_bg_mouse_entered"]
+[connection signal="pressed" from="UIMain/MainMenu/Settings/BG/Back Button" to="UIMain/MainMenu" method="_on_back_button_pressed"]
+[connection signal="value_changed" from="UIMain/MainMenu/Settings/BG/Music" to="UIMain/MainMenu" method="_on_music_value_changed"]
+[connection signal="value_changed" from="UIMain/MainMenu/Settings/BG/SFX" to="UIMain/MainMenu" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="UIMain/MainMenu/Settings/BG/Left" to="UIMain/MainMenu" method="_on_left_pressed"]
+[connection signal="pressed" from="UIMain/MainMenu/Settings/BG/Right" to="UIMain/MainMenu" method="_on_right_pressed"]
+[connection signal="value_changed" from="UIMain/MainMenu/Settings/BG/SpinBox" to="UIMain/MainMenu" method="_on_spin_box_value_changed"]
+[connection signal="toggled" from="UIMain/MainMenu/Settings/BG/SpinBox/CheckButton" to="UIMain/MainMenu" method="_on_max_fps_toggled"]
+[connection signal="toggled" from="UIMain/MainMenu/Settings/BG/Label2/CheckButton" to="UIMain/MainMenu" method="_on_check_button_toggled"]
+[connection signal="mouse_entered" from="CanvasLayer/Area2D" to="CanvasLayer" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Area2D" to="CanvasLayer" method="_on_area_2d_mouse_exited"]

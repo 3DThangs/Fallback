@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1oyr3b8n6erj"]
+
+[ext_resource type="Texture2D" uid="uid://4vg61l1co1p2" path="res://assets/sprites/tilemap_industrial.png" id="1_1iads"]
+[ext_resource type="Script" uid="uid://de4uhfgab33uu" path="res://scenes/entities/statics/ball.gd" id="1_tw2wi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tw2wi"]
+radius = 9.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 25
+mass = 3.0
+script = ExtResource("1_tw2wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_1iads")
+region_enabled = true
+region_rect = Rect2(57, 114, 18, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_tw2wi")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(1.8, 1.8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

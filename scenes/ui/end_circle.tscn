@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://356swp23onat"]
+
+[ext_resource type="Texture2D" uid="uid://bvdoo553rsf8w" path="res://assets/sprites/icons/circle.png" id="1_ne5um"]
+[ext_resource type="Script" uid="uid://cbv8udu2dvfot" path="res://scenes/ui/end_circle.gd" id="1_u3n2m"]
+
+[node name="end_circle" type="Sprite2D"]
+texture = ExtResource("1_ne5um")
+script = ExtResource("1_u3n2m")

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://csurgfu3c1vor"]
+
+[ext_resource type="Texture2D" uid="uid://cwjqiybuii74t" path="res://assets/sprites/tilemap-backgrounds_packed.png" id="1_oc3nq"]
+[ext_resource type="Script" uid="uid://co61q33ow8j1k" path="res://scenes/ui/main_menu.gd" id="1_uwiqa"]
+[ext_resource type="FontFile" uid="uid://cia2rwgnnhmv8" path="res://assets/Pixeled.ttf" id="3_1g8jr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gyu28"]
+font = ExtResource("3_1g8jr")
+font_size = 30
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 11
+shadow_color = Color(0, 0, 0, 0.2901961)
+
+[node name="MainMenu" type="Control" unique_id=852785388]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwiqa")
+
+[node name="BG" type="TextureRect" parent="." unique_id=26658586]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_oc3nq")
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="BG" unique_id=1824530878]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.99999
+offset_right = 71.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.79101646, 0.79101646)
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/MarginContainer" unique_id=1910566821]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="BG/MarginContainer/VBoxContainer" unique_id=2121927186]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FALLBACK"
+label_settings = SubResource("LabelSettings_gyu28")
+
+[node name="Play Button" type="Button" parent="BG/MarginContainer/VBoxContainer" unique_id=330952019]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1g8jr")
+theme_override_font_sizes/font_size = 20
+text = "Play Game"
+
+[node name="Settings Button" type="Button" parent="BG/MarginContainer/VBoxContainer" unique_id=774065241]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_1g8jr")
+theme_override_font_sizes/font_size = 20
+text = "Settings"
+
+[node name="Quit Button" type="Button" parent="BG/MarginContainer/VBoxContainer" unique_id=1913687646]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_1g8jr")
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1589709587]
+volume_db = -10.0
+
+[connection signal="pressed" from="BG/MarginContainer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
