@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://d4h62hqbpvja2"]
+[gd_scene format=4 uid="uid://d4h62hqbpvja2"]
 
 [ext_resource type="Script" uid="uid://c8cvpohkpn766" path="res://scenes/entities/interactibles/experimental_tilt.gd" id="1_3rc67"]
 [ext_resource type="Texture2D" uid="uid://bdhaqfftxtlwc" path="res://assets/sprites/tilemap.png" id="2_b3k0v"]
@@ -310,27 +310,27 @@ size = Vector2(288, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brw07"]
 size = Vector2(288, 56)
 
-[node name="TiltingPlatformRoot" type="StaticBody2D"]
+[node name="TiltingPlatformRoot" type="StaticBody2D" unique_id=1224590863]
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_3rc67")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=933020707]
 position = Vector2(0, -18)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD8/wAAAAAIAAIAAAD9/wAAAAAJAAIAAAD+/wAAAAAJAAIAAAD//wAAAAAJAAIAAAAAAAAAAAAJAAIAAAABAAAAAAAJAAIAAAACAAAAAAAJAAIAAAADAAAAAAAKAAIAAAA=")
 tile_set = SubResource("TileSet_3rc67")
 rendering_quadrant_size = 18
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530891034]
 shape = SubResource("RectangleShape2D_b3k0v")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=813213604]
 position = Vector2(1, 26)
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=19063977]
 position = Vector2(-1, -36)
 shape = SubResource("RectangleShape2D_brw07")
 

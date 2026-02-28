@@ -356,3 +356,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	colliding_objects.erase(body)
+
+func detect_headbonking():
+	#if vertical velocity is moving up and position is not going up and jumpbutton is pressed: headbonking
+	#else: not headbonking
+	#when move from headbonking to not headbonking, if vertial velocity is positive, set to 0
+	pass

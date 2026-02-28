@@ -15,7 +15,7 @@ func _on_area_2d_body_entered(body):
 			var direction = sign(body.global_position.x - global_position.x)
 			target_rotation = direction * max_tilt
 			await get_tree().create_timer(0.1).timeout
-
+	
 func _on_area_2d_body_exited(body):
 	if body is Player:
 		in_zone = false

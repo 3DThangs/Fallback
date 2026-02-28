@@ -11,7 +11,7 @@ var has_key : bool = false
 var death_count : int = 0
 
 var debug : bool = false
-var level_to_begin = 5
+var level_to_begin = 1
 
 var sfx_volume : float = 0.316
 var music_volume : float = 0.177

@@ -795,10 +795,7 @@ layer_0/tile_data = PackedInt32Array(-3, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0,
 [node name="Player" parent="." unique_id=102681309 instance=ExtResource("20_q30wr")]
 position = Vector2(324, -15)
 
-[node name="Restart" parent="Player" unique_id=196523845 node_paths=PackedStringArray("restart_point", "restart_object", "speedrun_timer") instance=ExtResource("23_8m3pt")]
-restart_point = NodePath("../../PlayerStart")
-restart_object = NodePath("..")
-speedrun_timer = NodePath("../../timer")
+[node name="Restart" parent="Player" unique_id=196523845 instance=ExtResource("23_8m3pt")]
 
 [node name="PlayerStart" type="Node2D" parent="." unique_id=326868772]
 position = Vector2(325, -15)
