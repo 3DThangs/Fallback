@@ -45,6 +45,7 @@ func _handle_mode_logic(prev_mode: int) -> void:
 	_update_visuals()
 
 func _update_visuals() -> void:
+	print(mode)
 	match mode:
 		1: animated_sprite_2d.play("right")
 		2: animated_sprite_2d.play("middle")

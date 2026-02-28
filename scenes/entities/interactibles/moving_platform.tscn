@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcekpcc6ima6u"]
+[gd_scene format=3 uid="uid://dcekpcc6ima6u"]
 
 [ext_resource type="Script" uid="uid://eccaee3jnvny" path="res://scenes/entities/interactibles/moving_platform.gd" id="1_f28x0"]
 [ext_resource type="Texture2D" uid="uid://bdhaqfftxtlwc" path="res://assets/sprites/tilemap.png" id="3_roc2w"]
@@ -307,13 +307,13 @@ texture_region_size = Vector2i(18, 18)
 tile_size = Vector2i(18, 18)
 sources/0 = SubResource("TileSetAtlasSource_mwruj")
 
-[node name="MovingPlatform" type="StaticBody2D"]
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=1397848732]
 script = ExtResource("1_f28x0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2144494159]
 shape = SubResource("RectangleShape2D_3eq3h")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." unique_id=11863858]
 position = Vector2(-9, 9)
 tile_set = SubResource("TileSet_w74pg")
 rendering_quadrant_size = 18
