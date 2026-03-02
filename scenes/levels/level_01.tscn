@@ -567,10 +567,7 @@ layer_0/tile_data = PackedInt32Array(1, 196608, 1, 2, 196608, 1, 3, 131072, 1, 4
 
 [node name="Player" parent="." unique_id=1548498214 instance=ExtResource("4_3fydj")]
 
-[node name="Restart" parent="Player" unique_id=856167993 node_paths=PackedStringArray("restart_point", "restart_object", "speedrun_timer") instance=ExtResource("20_cywot")]
-restart_point = NodePath("../../Map/PlayerStart")
-restart_object = NodePath("..")
-speedrun_timer = NodePath("../../timer")
+[node name="Restart" parent="Player" unique_id=856167993 instance=ExtResource("20_cywot")]
 
 [node name="timer" parent="." unique_id=1544888899 instance=ExtResource("12_12y3n")]
 
@@ -590,3 +587,7 @@ z_index = -1
 position = Vector2(5.9604645e-08, -4.7683716e-07)
 scale = Vector2(7.5218344, 9.732751)
 texture = ExtResource("22_svp4f")
+
+[node name="CustomLabel" parent="." unique_id=537512580 instance=ExtResource("16_h8tvo")]
+position = Vector2(-543, 16765)
+custom_text = "This is the underworld"

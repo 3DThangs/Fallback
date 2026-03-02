@@ -100,6 +100,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_jbj1t"]
+font = ExtResource("5_jkv2x")
+font_size = 10
+
 [sub_resource type="LabelSettings" id="LabelSettings_jkv2x"]
 font = ExtResource("5_jkv2x")
 font_size = 10
@@ -379,6 +383,15 @@ offset_top = -0.5781646
 offset_right = 0.003967285
 offset_bottom = -0.574173
 button_pressed = true
+
+[node name="Label3" type="Label" parent="UIMain/MainMenu/Settings/BG" unique_id=1776666000]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 334.0
+offset_right = 112.0
+offset_bottom = 362.0
+text = "Version 0.8.3"
+label_settings = SubResource("LabelSettings_jbj1t")
 
 [node name="Label" type="Label" parent="UIMain/MainMenu/Settings" unique_id=1269905098]
 visible = false

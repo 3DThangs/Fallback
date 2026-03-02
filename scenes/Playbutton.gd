@@ -10,6 +10,7 @@ var mouse_in_pause: bool = false
 func _ready() -> void:
 	pause_area.modulate.a = 0.5
 	_update_sprite()
+	print(Window.get_focused_window())
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -18,6 +19,7 @@ func _input(event: InputEvent) -> void:
 			Global.paused = !Global.paused
 			_update_sprite()
 			get_viewport().set_input_as_handled()
+			
 
 func _update_sprite() -> void:
 	if Global.paused:
@@ -32,3 +34,4 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_mouse_exited() -> void:
 	mouse_in_pause = false
 	pause_area.modulate.a = 0.5
+	

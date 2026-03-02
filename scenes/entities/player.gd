@@ -310,7 +310,7 @@ func latter() -> void:
 	disable_jump = true
 	velocity.y = 0
 	while in_latter:
-		while Input.is_action_pressed("up"):
+		while Input.is_action_pressed("up"): # or  Input.is_action_pressed("jump")
 			position.y -= 5
 			await get_tree().create_timer(0.01).timeout
 		while Input.is_action_pressed("down"):
