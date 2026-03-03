@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwwxjgi7mfko6"]
+
+[ext_resource type="Script" uid="uid://mbccuepp5rd" path="res://scenes/entities/interactibles/button.gd" id="1_be8od"]
+[ext_resource type="Texture2D" uid="uid://cbylqt637c4wa" path="res://assets/sprites/button/button_2.png" id="2_lvibg"]
+[ext_resource type="Texture2D" uid="uid://crcgjg0h3jrks" path="res://assets/sprites/button/button_1.png" id="3_0j05p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arfea"]
+size = Vector2(16, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bhi4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lvibg")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0j05p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="button" type="Area2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_be8od")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_arfea")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7bhi4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

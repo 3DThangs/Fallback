@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dib1xrb65kswr"]
+
+[ext_resource type="Script" uid="uid://dirqmsmr2fft8" path="res://scenes/fps_counter.gd" id="1_u321x"]
+[ext_resource type="FontFile" uid="uid://cia2rwgnnhmv8" path="res://assets/Pixeled.ttf" id="2_ufo2q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u321x"]
+font = ExtResource("2_ufo2q")
+font_size = 15
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FPS counter" type="CanvasLayer" unique_id=794587717]
+script = ExtResource("1_u321x")
+
+[node name="Label" type="Label" parent="." unique_id=2037086379]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 30.0
+grow_horizontal = 0
+text = "FPS: 120.0"
+label_settings = SubResource("LabelSettings_u321x")
+horizontal_alignment = 2
+vertical_alignment = 1

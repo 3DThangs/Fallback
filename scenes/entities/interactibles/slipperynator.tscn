@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://eu7kle4ms6gg"]
+
+[ext_resource type="Script" uid="uid://v2sban5adyp6" path="res://scenes/entities/interactibles/slipperynator.gd" id="1_565ex"]
+
+[node name="Slipperynator" type="Area2D"]
+collision_mask = 8
+script = ExtResource("1_565ex")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

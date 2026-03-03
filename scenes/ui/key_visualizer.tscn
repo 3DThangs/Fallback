@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://casmuc700vkvj"]
+
+[ext_resource type="Script" uid="uid://b8xipnh5pyoy1" path="res://scenes/ui/key_visualizer.gd" id="1_dqh15"]
+[ext_resource type="Texture2D" uid="uid://bdhaqfftxtlwc" path="res://assets/sprites/tilemap.png" id="1_pa11w"]
+
+[node name="key_vis" type="CanvasLayer"]
+script = ExtResource("1_dqh15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 344)
+scale = Vector2(2, 2)
+texture = ExtResource("1_pa11w")
+region_enabled = true
+region_rect = Rect2(133, 19, 18, 18)

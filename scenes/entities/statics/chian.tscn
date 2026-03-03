@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://cogh1b2270t43"]
+
+[ext_resource type="Texture2D" uid="uid://4vg61l1co1p2" path="res://assets/sprites/tilemap_industrial.png" id="1_g0aqs"]
+[ext_resource type="Script" uid="uid://cmi6xcghjg5o" path="res://scenes/entities/statics/rigid_body_2d.gd" id="2_k6oqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6oqo"]
+size = Vector2(4, 18)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g0aqs"]
+polygon = PackedVector2Array(-5, 6, -3, 6, -3, 9, 3, 9, 3, 6, 5, 6, 6, 5, 6, -3, 7, -5, 7, -9, -7, -9, -7, -5, -6, -3, -6, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gd5t"]
+size = Vector2(3.8637, 16.4901)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_k6oqo"]
+polygon = PackedVector2Array(-5.49712, 18.1973, -5.87606, 11.8841, -9.99858, 11.8148, -11.6716, 10.3312, -11.3249, -10.2814, -6.35653, -17.2324, 6.01104, -17.0243, 11.4784, -10.383, 12.0976, 10.4885, 10.614, 12.1615, 6.49151, 12.0922, 7.12927, 17.4394)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wxsn"]
+size = Vector2(4, 16.3074)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5gd5t"]
+polygon = PackedVector2Array(-10.956, 6.37628, -4.99186, 4.04615, -8.68801, -1.55192, -9.25019, -14.5782, -5.01814, -17.9083, 6.64212, -18.1045, 11.3383, -14.2385, 10.1684, -2.21217, 11.4626, 13.5462, 6.23057, 18.6083, -6.29571, 18.3045, -11.3579, 13.0724)
+
+[node name="Chain (3)" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_g0aqs")
+region_enabled = true
+region_rect = Rect2(154, 0, 14, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_k6oqo")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_g0aqs")
+sdf_collision = false
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(4.6, 34)
+rotation = -0.261799
+collision_layer = 0
+collision_mask = 0
+can_sleep = false
+linear_velocity = Vector2(2, 0)
+script = ExtResource("2_k6oqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_g0aqs")
+region_enabled = true
+region_rect = Rect2(155, 19, 12, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-4.76837e-06, 0.258823)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_5gd5t")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody2D"]
+occluder = SubResource("OccluderPolygon2D_k6oqo")
+sdf_collision = false
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(17.3, 67)
+rotation = -0.523599
+collision_layer = 0
+collision_mask = 0
+mass = 20.0
+can_sleep = false
+linear_velocity = Vector2(4, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_g0aqs")
+region_enabled = true
+region_rect = Rect2(155, 38, 11, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(1.36603, -0.366025)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_4wxsn")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody2D2"]
+occluder = SubResource("OccluderPolygon2D_5gd5t")
+sdf_collision = false
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 17)
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../RigidBody2D")
+disable_collision = false
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(9.5, 51)
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../RigidBody2D2")
+disable_collision = false

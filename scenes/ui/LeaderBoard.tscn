@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b6o4k1u4lye6l"]
+
+[ext_resource type="Script" uid="uid://dws2p1mnk8etn" path="res://scenes/ui/leader_board.gd" id="1_7hn3j"]
+[ext_resource type="FontFile" uid="uid://cia2rwgnnhmv8" path="res://assets/Pixeled.ttf" id="2_nq5gv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7hn3j"]
+font = ExtResource("2_nq5gv")
+font_size = 10
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LeaderBoard" type="CanvasLayer" unique_id=1540105106]
+script = ExtResource("1_7hn3j")
+
+[node name="Label" type="Label" parent="." unique_id=931193406]
+anchors_preset = -1
+anchor_left = 0.308
+anchor_top = 0.394
+anchor_right = 0.692
+anchor_bottom = 0.458
+offset_left = -0.12001
+offset_top = 0.159988
+offset_right = 0.119995
+offset_bottom = 0.12001
+grow_horizontal = 2
+grow_vertical = 2
+text = "Completion time: 000.00"
+label_settings = SubResource("LabelSettings_7hn3j")
+horizontal_alignment = 1
+
+[node name="Continue Button" type="Button" parent="." unique_id=1172001973]
+anchors_preset = -1
+anchor_left = 0.427
+anchor_top = 0.572
+anchor_right = 0.573
+anchor_bottom = 0.65
+offset_left = -0.279999
+offset_top = -16.42
+offset_right = 0.279999
+offset_bottom = -16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_nq5gv")
+theme_override_font_sizes/font_size = 10
+text = "CONTINUE"
+
+[node name="Label2" type="Label" parent="." unique_id=83166993]
+anchors_preset = -1
+anchor_left = 0.308
+anchor_top = 0.458
+anchor_right = 0.692
+anchor_bottom = 0.521
+offset_left = -0.120041
+offset_top = -0.179993
+offset_right = 0.119995
+offset_bottom = 0.140015
+grow_horizontal = 2
+grow_vertical = 2
+text = "Total game time: 000.00"
+label_settings = SubResource("LabelSettings_7hn3j")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Continue Button" to="." method="_on_continue_button_pressed"]

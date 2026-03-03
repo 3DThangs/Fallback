@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv6sos2f6kptx"]
+
+[ext_resource type="Script" uid="uid://b6yabcpilh4o2" path="res://assets/scripts/latterinator.gd" id="1_w2q78"]
+
+[node name="latterinator" type="Area2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_w2q78")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

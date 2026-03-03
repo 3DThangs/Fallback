@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bvyujv240pxp"]
+
+[ext_resource type="Script" uid="uid://dxn2cs3h245g4" path="res://assets/scripts/custom_label.gd" id="1_lqoof"]
+[ext_resource type="FontFile" uid="uid://cia2rwgnnhmv8" path="res://assets/Pixeled.ttf" id="2_ryedd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j6dgs"]
+font = ExtResource("2_ryedd")
+font_size = 15
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CustomLabel" type="Node2D" unique_id=537512580]
+script = ExtResource("1_lqoof")
+
+[node name="Label" type="Label" parent="." unique_id=48288006]
+offset_top = -12.0
+offset_right = 264.0
+offset_bottom = 30.0
+text = "Maximum text length"
+label_settings = SubResource("LabelSettings_j6dgs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=131660869]
+position = Vector2(125.75, 12.5)
+scale = Vector2(12.725, 0.95)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

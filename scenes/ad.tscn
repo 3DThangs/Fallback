@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://j08b5jjdtyn1"]
+
+[ext_resource type="VideoStream" uid="uid://nu0gptywme50" path="res://assets/music/rickroll.ogv" id="1_fn3lw"]
+[ext_resource type="Script" uid="uid://bcwnyb0ngahlo" path="res://scenes/ad.gd" id="1_wbmsd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbmsd"]
+font_size = 32
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wbmsd")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1596.0
+offset_bottom = 1050.0
+scale = Vector2(0.3, 0.3)
+stream = ExtResource("1_fn3lw")
+
+[node name="Button" type="Button" parent="."]
+z_index = 3
+offset_left = 306.0
+offset_top = 184.0
+offset_right = 375.0
+offset_bottom = 215.0
+text = "SKIP AD"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 297.0
+offset_top = 160.0
+offset_right = 364.0
+offset_bottom = 205.0
+text = "Ad..."
+label_settings = SubResource("LabelSettings_wbmsd")
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dopnjejc7cja0"]
+
+[ext_resource type="Script" uid="uid://ccthvwb4w7ugn" path="res://assets/scripts/timer.gd" id="1_r1wfe"]
+[ext_resource type="FontFile" uid="uid://cia2rwgnnhmv8" path="res://assets/Pixeled.ttf" id="2_g5y8c"]
+[ext_resource type="Texture2D" uid="uid://j3311efqchet" path="res://assets/sprites/icons/time.png" id="2_nfl2i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8gij"]
+font = ExtResource("2_g5y8c")
+font_size = 15
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="timer" type="CanvasLayer" unique_id=343948745]
+script = ExtResource("1_r1wfe")
+
+[node name="Label" type="Label" parent="." unique_id=1155671605]
+anchors_preset = -1
+anchor_left = 0.847
+anchor_top = 0.917
+anchor_right = 0.952
+anchor_bottom = 0.986
+offset_left = -0.08001709
+offset_top = -11.119995
+offset_right = -0.2800293
+offset_bottom = 6.0400085
+grow_horizontal = 0
+grow_vertical = 0
+text = "100.0"
+label_settings = SubResource("LabelSettings_o8gij")
+horizontal_alignment = 2
+
+[node name="Time" type="Sprite2D" parent="." unique_id=1451062504]
+position = Vector2(633, 342)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_nfl2i")

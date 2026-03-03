@@ -1,0 +1,166 @@
+[gd_scene load_steps=9 format=3 uid="uid://3gkrpke4eprb"]
+
+[ext_resource type="Script" uid="uid://bkacdhvx3pr6l" path="res://scenes/entities/statics/light.gd" id="1_bsycy"]
+[ext_resource type="Texture2D" uid="uid://4vg61l1co1p2" path="res://assets/sprites/tilemap_industrial.png" id="1_x5ily"]
+
+[sub_resource type="Gradient" id="Gradient_07dqf"]
+offsets = PackedFloat32Array(0, 0.647841)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bsycy"]
+gradient = SubResource("Gradient_07dqf")
+fill = 1
+fill_from = Vector2(0.510684, 0.512821)
+
+[sub_resource type="Animation" id="Animation_bsycy"]
+resource_name = "FadeBlue"
+length = 0.20001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.53934, 0.964298, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dv0b1"]
+resource_name = "fade"
+length = 0.20001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, 2.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0.129412, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bkm4k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0.129412, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swugg"]
+_data = {
+&"FadeBlue": SubResource("Animation_bsycy"),
+&"FadeRed": SubResource("Animation_dv0b1"),
+&"RESET": SubResource("Animation_bkm4k")
+}
+
+[node name="Light" type="Node2D"]
+script = ExtResource("1_bsycy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("1_x5ily")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 81, 37, 13)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0.129412, 1)
+energy = 3.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_bsycy")
+texture_scale = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_swugg")
+}
+speed_scale = 0.25
